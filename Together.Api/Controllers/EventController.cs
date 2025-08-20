@@ -14,31 +14,54 @@ public class EventController(IEventService eventService) : ControllerBase
     [HttpPost("add-event")]
     public IActionResult AddEvent(AddEventRequest request)
     {
-        AddEventResponse res = new(
-            Guid.NewGuid(),
+        EventAddResult result =  eventService.add(
             request.name,
             request.coordinator,
             request.place,
             request.lat,
             request.lng,
             request.fee
+        );
+
+        AddEventResponse res = new(
+            result.id,
+            result.name,
+            result.coordinator,
+            result.place,
+            result.lat,
+            result.lng,
+            result.fee
             );
+
         return Ok(res);
     }
 
     [HttpPost("query-event")]
     public IActionResult QueryEvent(QueryEventRequest request)
     {
-        QueryEventResponse res = new(
-            "activity name",
-            "Mark Ho",
-            "Taipei city hall",
-            23.8f,
-            100.4f,
-            500
-         );
-        QueryEventResponse[] events = [res, res, res];
-        return Ok(events);
+        EventQueryResult[] result = eventService.query(
+            request.lat,
+            request.lng,
+            request.length
+        );
+
+        List<QueryEventResponse> events = [];
+
+        foreach (EventQueryResult r in result)
+        {
+            QueryEventResponse res = new(
+                r.name,
+                r.coordinator,
+                r.place,
+                r.lat,
+                r.lng,
+                r.fee
+            );
+            events.Add(res);
+        }
+
+        // QueryEventResponse[] events = [res, res, res];
+        return Ok(events.ToArray());
     }
 
 }
