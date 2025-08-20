@@ -1,8 +1,13 @@
-@HOSTNAME = localhost:
+@HOSTNAME = localhost:5044
 @PORT = 5044
 
-Get http://{{HOSTNAME}}{{PORT}}/
+### add event
+GET http://{{HOSTNAME}}/api/add-event
 
-### another http request
 
-Get http://{{HOSTNAME}}{{PORT}}/WeatherForecast
+### query event
+GET http://{{HOSTNAME}}/api/query-event
+
+
+### wrong event
+GET http://{{HOSTNAME}}/api/wrong
