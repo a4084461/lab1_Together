@@ -1,0 +1,8 @@
+@HOSTNAME = localhost:
+@PORT = 5044
+
+Get http://{{HOSTNAME}}{{PORT}}/
+
+### another http request
+
+Get http://{{HOSTNAME}}{{PORT}}/WeatherForecast
