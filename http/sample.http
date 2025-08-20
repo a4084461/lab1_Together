@@ -2,12 +2,27 @@
 @PORT = 5044
 
 ### add event
-GET http://{{HOSTNAME}}/api/add-event
+POST http://{{HOSTNAME}}/api/add-event
+Content-Type: application/json
 
+{
+    "name":"push up",
+    "coordinator":"Energy Hu",
+    "place":"Taipei Arena Station",
+    "lat":20.44,
+    "lng":130.77,
+    "fee":300   
+}
 
 ### query event
-GET http://{{HOSTNAME}}/api/query-event
+POST http://{{HOSTNAME}}/api/query-event
+Content-Type: application/json
 
+{
+    "lat":20.42,
+    "lng":130.75,
+    "length":500
+}
 
 ### wrong event
 GET http://{{HOSTNAME}}/api/wrong
