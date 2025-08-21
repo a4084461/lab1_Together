@@ -1,6 +1,11 @@
+using Together.Application;
+using Together.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllersWithViews();
+    builder.Services.AddApplication();
+    builder.Services.AddInfrastructure();
 }
 var app = builder.Build();
 {

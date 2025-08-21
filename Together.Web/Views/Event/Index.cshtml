@@ -1,3 +1,5 @@
+@using Together.Application.Services
+@model EventQueryResult[]
 @{
     ViewData["Title"] = "Together有趣的事件";
 }
@@ -5,17 +7,31 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>@ViewData["title"]</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Event List</h1>        
-        <p>event will display here</p>
-        <script src="" async defer></script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["title"]</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Event List</h1>
+    <table style="border: 1;background-color: #C0FFEE;">
+    @foreach (EventQueryResult x in Model)
+    {
+        <tr>
+            <td>@x.name</td>
+            <td>@x.coordinator</td>
+            <td>@x.place</td>
+            <td>(@x.lat, @x.lng)</td>
+            <td>@x.fee</td>
+        </tr>
+    }
+    </table>
+    <script src="" async defer></script>
+</body>
+
 </html>
