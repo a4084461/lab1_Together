@@ -10,6 +10,7 @@ public static class DependencyInjection
     {
         // services.AddScoped<IEventRepository, EventMemReopository>();
         services.AddScoped<IEventRepository, EventEFCoreRepository>();
+        services.AddScoped<EventContext, EventContext>();
         return services;
     }
 }

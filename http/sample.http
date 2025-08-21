@@ -11,7 +11,7 @@ Content-Type: application/json
     "place":"Taipei 101",
     "lat":20.44,
     "lng":130.77,
-    "fee":500   
+    "fee":400   
 }
 
 ### query event

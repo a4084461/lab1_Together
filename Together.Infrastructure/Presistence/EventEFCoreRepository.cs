@@ -4,9 +4,9 @@ using Together.Domain.Entity;
 
 namespace Together.Infrastructure.Presistence;
 
-public class EventEFCoreRepository : IEventRepository
+public class EventEFCoreRepository(EventContext pdb) : IEventRepository
 {
-    public readonly EventContext db = new();
+    public readonly EventContext db = pdb;
     public void AddEvent(Event e)
     {
         db.Add(e);
