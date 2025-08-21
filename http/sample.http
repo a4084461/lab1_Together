@@ -6,12 +6,12 @@ POST http://{{HOSTNAME}}/api/add-event
 Content-Type: application/json
 
 {
-    "name":"push up",
-    "coordinator":"Energy Hu",
-    "place":"Taipei Arena Station",
+    "name":"lat pull dowm",
+    "coordinator":"ChongWen Su",
+    "place":"Taipei 101",
     "lat":20.44,
     "lng":130.77,
-    "fee":300   
+    "fee":500   
 }
 
 ### query event
